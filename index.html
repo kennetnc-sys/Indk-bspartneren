@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Indkøbspartneren.dk</title>
+    <meta
+      name="description"
+      content="Indkøbspartneren.dk forbinder virksomheder med relevante partnere inden for drift, energi, IT og professionelle ydelser."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Indkobspartneren.dk forside">
+        <img src="assets/logo.svg" alt="" class="brand-mark">
+        <span>Indkøbspartneren.dk</span>
+      </a>
+      <nav class="main-nav" aria-label="Hovednavigation">
+        <a href="#tilbud">Hvad kan vi tilbyde?</a>
+        <a href="#om-os">Om os</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="intro" aria-labelledby="intro-title">
+        <div class="intro-copy">
+          <p class="eyebrow">Indkøbspartneren.dk</p>
+          <h1 id="intro-title">Find den rigtige partner til virksomhedens indkøb</h1>
+          <p>
+            Vælg den ydelse, virksomheden har brug for, og send dine kontaktoplysninger videre.
+            Derefter kontakter den relevante partner dig direkte.
+          </p>
+        </div>
+        <div class="intro-panel" aria-label="Kontaktflow">
+          <span class="panel-number">01</span>
+          <span>Vælg kategori</span>
+          <span class="panel-divider"></span>
+          <span class="panel-number">02</span>
+          <span>Indtast mail og telefon</span>
+          <span class="panel-divider"></span>
+          <span class="panel-number">03</span>
+          <span>Bliv kontaktet</span>
+        </div>
+      </section>
+
+      <section class="category-section" id="tilbud" aria-labelledby="category-title">
+        <div class="section-heading">
+          <p class="eyebrow">Hvad kan vi tilbyde?</p>
+          <h2 id="category-title">Kategorier</h2>
+        </div>
+
+        <div class="category-grid" id="categoryGrid"></div>
+      </section>
+
+      <section class="content-section" id="om-os" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="eyebrow">Om os</p>
+          <h2 id="about-title">En enkel vej til relevante leverandører</h2>
+        </div>
+        <p>
+          Indkøbspartneren.dk er bygget til virksomheder, der vil gøre det nemmere at finde
+          leverandører inden for praktiske og driftskritiske områder. Portalen er frit
+          tilgængelig og kræver ikke login.
+        </p>
+      </section>
+
+      <section class="content-section contact-section" id="kontakt" aria-labelledby="contact-title">
+        <div class="section-heading">
+          <p class="eyebrow">Kontakt</p>
+          <h2 id="contact-title">Har du spørgsmål?</h2>
+        </div>
+        <p>
+          Brug en af kategorierne ovenfor, så bliver henvendelsen sendt med den rigtige
+          kategori. Direkte kontakt kan sættes op, når de endelige mailadresser er klar.
+        </p>
+      </section>
+    </main>
+
+    <dialog class="lead-dialog" id="leadDialog" aria-labelledby="dialogTitle">
+      <form id="leadForm" method="dialog">
+        <div class="dialog-top">
+          <div>
+            <p class="eyebrow">Forespørgsel</p>
+            <h2 id="dialogTitle">Send kontaktoplysninger</h2>
+          </div>
+          <button class="icon-button" type="button" id="closeDialog" aria-label="Luk formular">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M18 6 6 18M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <input type="hidden" id="categoryInput" name="category">
+
+        <label for="emailInput">
+          Mail
+          <input id="emailInput" name="email" type="email" autocomplete="email" required>
+        </label>
+
+        <label for="phoneInput">
+          Telefon
+          <input id="phoneInput" name="phone" type="tel" autocomplete="tel" required>
+        </label>
+
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+        <div class="dialog-actions">
+          <button class="secondary-button" type="button" id="cancelDialog">Annuller</button>
+          <button class="primary-button" type="submit">Send forespørgsel</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
