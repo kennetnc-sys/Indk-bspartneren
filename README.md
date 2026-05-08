@@ -4,10 +4,13 @@ Første statiske prototype til en åben indkøbsportal uden login og uden indkø
 
 ## Filer
 
-- `index.html` indeholder struktur, header, kategorier, formular og sektioner.
+- `index.html` indeholder forsiden, kategorierne og formularen.
+- `om-os.html` indeholder Om os-siden.
+- `kontakt.html` indeholder kontaktsiden.
+- `privatliv.html` indeholder privatlivs- og cookiepolitikken.
 - `styles.css` indeholder layout og visuelt design.
 - `script.js` opretter kategorierne og bygger mailflowet.
-- `assets/logo.svg` er logoet i headeren.
+- `assets/social-indkob-logo-clean.png` er logoet i headeren.
 
 ## Mailopsætning
 
