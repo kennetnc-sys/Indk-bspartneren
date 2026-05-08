@@ -1,76 +1,78 @@
-const ownerEmail = "din-mail@example.dk";
+const ownerEmail = "mail@socialindkøb.dk";
 
 const categories = [
   {
     name: "IT-løsninger",
     description: "IT-drift, support og digitale løsninger",
     partnerEmail: "partner-it@example.dk",
-    color: "#416d96",
-    background: "#e4eef6",
+    color: "#004b57",
+    background: "#e6f3f1",
     icon: "monitor",
   },
   {
     name: "El",
     description: "Elaftaler og erhvervsløsninger",
     partnerEmail: "partner-el@example.dk",
-    color: "#c8902c",
-    background: "#f7ecd5",
+    color: "#5cae77",
+    background: "#eaf6ee",
     icon: "bolt",
   },
   {
     name: "Internet",
     description: "Bredbånd, fiber og forbindelser",
     partnerEmail: "partner-internet@example.dk",
-    color: "#1d6f5f",
-    background: "#dff2ed",
+    color: "#0b6470",
+    background: "#e4f3f1",
     icon: "wifi",
+    requiresDeliveryAddress: true,
   },
   {
     name: "Omstillingsbord",
     description: "Telefonpasning og kundedialog",
     partnerEmail: "partner-telefon@example.dk",
-    color: "#8a5a9d",
-    background: "#efe6f3",
+    color: "#75bd8c",
+    background: "#edf7f1",
     icon: "headset",
   },
   {
     name: "Overfaldsalarm",
     description: "Tryghedsløsninger til medarbejdere",
     partnerEmail: "partner-alarm@example.dk",
-    color: "#b95643",
-    background: "#f6e5e1",
+    color: "#004b57",
+    background: "#e8f4f2",
     icon: "shield",
   },
   {
     name: "Forsikringer",
     description: "Erhvervsforsikringer og rådgivning",
     partnerEmail: "partner-forsikring@example.dk",
-    color: "#2f7d54",
-    background: "#e0f0e7",
+    color: "#5fae7a",
+    background: "#e7f5ed",
     icon: "umbrella",
   },
   {
     name: "Gas",
     description: "Gasaftaler til erhverv",
     partnerEmail: "partner-gas@example.dk",
-    color: "#b86f2d",
-    background: "#f5e8d8",
+    color: "#336f71",
+    background: "#e6f1ee",
     icon: "flame",
+    requiresDeliveryAddress: true,
   },
   {
     name: "Revisor",
     description: "Regnskab, revision og økonomi",
     partnerEmail: "partner-revisor@example.dk",
-    color: "#53615c",
-    background: "#e8ecea",
+    color: "#55757b",
+    background: "#edf3f2",
     icon: "calculator",
   },
   {
     name: "Tryksager",
     description: "Print, profilmateriale og produktion",
     partnerEmail: "partner-tryk@example.dk",
-    color: "#197181",
-    background: "#ddf0f3",
+    color: "#8aaebe",
+    background: "#eef5f7",
     icon: "print",
   },
 ];
@@ -103,6 +105,9 @@ const dialogTitle = document.querySelector("#dialogTitle");
 const categoryInput = document.querySelector("#categoryInput");
 const emailInput = document.querySelector("#emailInput");
 const phoneInput = document.querySelector("#phoneInput");
+const deliveryAddressField = document.querySelector("#deliveryAddressField");
+const deliveryAddressInput = document.querySelector("#deliveryAddressInput");
+const privacyConsentInput = document.querySelector("#privacyConsentInput");
 const formStatus = document.querySelector("#formStatus");
 const closeDialog = document.querySelector("#closeDialog");
 const cancelDialog = document.querySelector("#cancelDialog");
@@ -135,6 +140,8 @@ function openLeadDialog(category) {
   formStatus.textContent = "";
   form.reset();
   categoryInput.value = category.name;
+  deliveryAddressField.hidden = !category.requiresDeliveryAddress;
+  deliveryAddressInput.required = Boolean(category.requiresDeliveryAddress);
 
   if (typeof dialog.showModal === "function") {
     dialog.showModal();
@@ -162,17 +169,28 @@ function submitLead(event) {
 
   const email = emailInput.value.trim();
   const phone = phoneInput.value.trim();
+  const deliveryAddress = deliveryAddressInput.value.trim();
   const recipients = [ownerEmail, activeCategory.partnerEmail].join(",");
   const subject = encodeURIComponent(`Ny forespørgsel: ${activeCategory.name}`);
-  const body = encodeURIComponent(
-    [
-      `Kategori: ${activeCategory.name}`,
-      `Mail: ${email}`,
-      `Telefon: ${phone}`,
-      "",
-      "Kunden ønsker at blive kontaktet om denne kategori.",
-    ].join("\n")
+  const bodyLines = [
+    `Kategori: ${activeCategory.name}`,
+    `Mail: ${email}`,
+    `Telefon: ${phone}`,
+  ];
+
+  if (activeCategory.requiresDeliveryAddress) {
+    bodyLines.push(`Leveringsadresse(r): ${deliveryAddress}`);
+  }
+
+  bodyLines.push(
+    "",
+    "Kunden ønsker at blive kontaktet om denne kategori.",
+    privacyConsentInput.checked
+      ? "Kunden har accepteret videregivelse til relevant indkøbspartner."
+      : ""
   );
+
+  const body = encodeURIComponent(bodyLines.join("\n"));
 
   formStatus.textContent = "Åbner mailprogrammet med forespørgslen.";
   window.location.href = `mailto:${recipients}?subject=${subject}&body=${body}`;

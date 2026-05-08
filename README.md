@@ -1,4 +1,4 @@
-# Indkøbspartneren.dk
+# Socialindkøb.dk
 
 Første statiske prototype til en åben indkøbsportal uden login og uden indkøbskurv.
 
@@ -11,13 +11,20 @@ Første statiske prototype til en åben indkøbsportal uden login og uden indkø
 
 ## Mailopsætning
 
-I `script.js` skal disse pladsholdere skiftes:
+I `script.js` skal partnernes pladsholdere skiftes:
 
 ```js
-const ownerEmail = "din-mail@example.dk";
 partnerEmail: "partner-el@example.dk";
 ```
 
 Lige nu bruger siden `mailto:`, så brugerens mailprogram åbner med en færdig besked til dig og partneren.
 
 Hvis mails skal sendes automatisk fra hjemmesiden uden at åbne brugerens mailprogram, skal siden kobles på en formularservice eller en lille backend, for eksempel Netlify Forms, Formspree, Resend eller en serverfunktion hos webhotellet.
+
+## Privatliv og cookies
+
+Siden har en synlig privatlivs- og cookiepolitik samt et obligatorisk samtykkefelt i formularen.
+
+Den nuværende version bruger ikke statistik-, marketing- eller trackingcookies. Hvis der senere tilføjes Google Analytics, Meta Pixel, annonceværktøjer, chatwidgets eller lignende, skal der tilføjes en egentlig cookie-samtykkeløsning, før de tages i brug.
+
+Når virksomhedsoplysningerne er endeligt klar, bør privatlivspolitikken suppleres med juridisk virksomhedsnavn, CVR-nummer og adresse.
