@@ -12,6 +12,9 @@ Statisk B2B leadgen-side til Socialindkøb.dk uden login og uden indkøbskurv.
 - `script.js` opretter kategorierne og bygger mailflowet.
 - `assets/social-indkob-logo-clean.png` er logoet i headeren.
 
+Husk at uploade hele `assets`-mappen til GitHub. Hvis logo-filen ikke ligger der, kan
+Vercel ikke vise logoet i headeren.
+
 ## Mailopsætning
 
 I `script.js` skal partnernes pladsholdere skiftes:

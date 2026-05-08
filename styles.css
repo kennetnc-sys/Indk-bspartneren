@@ -111,29 +111,6 @@ button {
   height: auto;
 }
 
-.brand-fallback {
-  align-items: center;
-  gap: 10px;
-  color: var(--petrol);
-  font-size: 1.18rem;
-  font-weight: 800;
-}
-
-.brand-fallback:not([hidden]) {
-  display: inline-flex;
-}
-
-.brand-fallback-mark {
-  display: grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--petrol);
-  color: #fff;
-  font-size: 0.82rem;
-}
-
 .main-nav {
   display: flex;
   align-items: center;
