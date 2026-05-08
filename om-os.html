@@ -13,7 +13,16 @@
   <body>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="Socialindkøb.dk forside">
-        <img src="assets/social-indkob-logo-clean.png" alt="Social Indkøb" class="brand-logo">
+        <img
+          src="assets/social-indkob-logo-clean.png"
+          alt="Social Indkøb"
+          class="brand-logo"
+          onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+        >
+        <span class="brand-fallback" hidden>
+          <span class="brand-fallback-mark">SI</span>
+          <span>Social Indkøb</span>
+        </span>
       </a>
       <nav class="main-nav" aria-label="Hovednavigation">
         <a href="index.html#tilbud">Hvad kan vi tilbyde?</a>
@@ -51,10 +60,14 @@
     </main>
 
     <footer class="site-footer">
-      <span>Socialindkøb.dk</span>
-      <a href="om-os.html">Om os</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="privatliv.html">Privatliv og cookies</a>
+      <div class="footer-inner">
+        <span class="footer-brand">Socialindkøb.dk</span>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="om-os.html">Om os</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="privatliv.html">Privatliv og cookies</a>
+        </nav>
+      </div>
     </footer>
   </body>
 </html>

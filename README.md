@@ -1,14 +1,14 @@
 # Socialindkøb.dk
 
-Første statiske prototype til en åben indkøbsportal uden login og uden indkøbskurv.
+Statisk B2B leadgen-side til Socialindkøb.dk uden login og uden indkøbskurv.
 
 ## Filer
 
-- `index.html` indeholder forsiden, kategorierne og formularen.
+- `index.html` indeholder forsiden, kategorier og formularen.
 - `om-os.html` indeholder Om os-siden.
 - `kontakt.html` indeholder kontaktsiden.
 - `privatliv.html` indeholder privatlivs- og cookiepolitikken.
-- `styles.css` indeholder layout og visuelt design.
+- `styles.css` indeholder layout, responsivitet, CTA'er, kortdesign og visuelt design.
 - `script.js` opretter kategorierne og bygger mailflowet.
 - `assets/social-indkob-logo-clean.png` er logoet i headeren.
 

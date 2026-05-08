@@ -13,7 +13,16 @@
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Socialindkøb.dk forside">
-        <img src="assets/social-indkob-logo-clean.png" alt="Social Indkøb" class="brand-logo">
+        <img
+          src="assets/social-indkob-logo-clean.png"
+          alt="Social Indkøb"
+          class="brand-logo"
+          onerror="this.hidden = true; this.nextElementSibling.hidden = false;"
+        >
+        <span class="brand-fallback" hidden>
+          <span class="brand-fallback-mark">SI</span>
+          <span>Social Indkøb</span>
+        </span>
       </a>
       <nav class="main-nav" aria-label="Hovednavigation">
         <a href="#tilbud">Hvad kan vi tilbyde?</a>
@@ -23,34 +32,42 @@
     </header>
 
     <main id="top">
-      <section class="intro" aria-labelledby="intro-title">
-        <div class="intro-copy">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
           <p class="eyebrow">Socialindkøb.dk</p>
-          <h1 id="intro-title">Få adgang til fordelagtige indkøbsaftaler</h1>
+          <h1 id="hero-title">
+            Få bedre aftaler
+            <span>på virksomhedens faste udgifter</span>
+          </h1>
+          <p class="hero-subtitle">
+            Vælg en kategori, udfyld dine oplysninger, og bliv kontaktet af en relevant
+            leverandør.
+          </p>
         </div>
-        <ul class="intro-steps" aria-label="Kontaktflow">
-          <li>Vælg kategori</li>
-          <li>Indtast kontaktoplysninger</li>
-          <li>Bliv kontaktet af leverandøren</li>
-        </ul>
       </section>
 
       <section class="category-section" id="tilbud" aria-labelledby="category-title">
         <div class="section-heading">
-          <p class="eyebrow">Hvad kan vi tilbyde?</p>
-          <h2 id="category-title">Kategorier</h2>
+          <div>
+            <p class="eyebrow">Hvad kan vi tilbyde?</p>
+            <h2 id="category-title">Hvad vil du optimere?</h2>
+            <p class="section-subtitle">Vælg den kategori, hvor du ønsker bedre aftaler.</p>
+          </div>
         </div>
 
         <div class="category-grid" id="categoryGrid"></div>
       </section>
-
     </main>
 
     <footer class="site-footer">
-      <span>Socialindkøb.dk</span>
-      <a href="om-os.html">Om os</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="privatliv.html">Privatliv og cookies</a>
+      <div class="footer-inner">
+        <span class="footer-brand">Socialindkøb.dk</span>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="om-os.html">Om os</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="privatliv.html">Privatliv og cookies</a>
+        </nav>
+      </div>
     </footer>
 
     <dialog class="lead-dialog" id="leadDialog" aria-labelledby="dialogTitle">

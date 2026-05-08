@@ -11,7 +11,7 @@ const categories = [
   },
   {
     name: "El",
-    description: "Elaftaler og erhvervsløsninger",
+    description: "El aftaler og erhvervsløsninger",
     partnerEmail: "partner-el@example.dk",
     color: "#5cae77",
     background: "#eaf6ee",
@@ -28,7 +28,7 @@ const categories = [
   },
   {
     name: "Omstillingsbord",
-    description: "Telefonpasning og kundedialog",
+    description: "Telefontilpasning og kundedialog",
     partnerEmail: "partner-telefon@example.dk",
     color: "#75bd8c",
     background: "#edf7f1",
@@ -75,6 +75,14 @@ const categories = [
     background: "#eef5f7",
     icon: "print",
   },
+  {
+    name: "Premium indkøbsanalyse",
+    description: "Komplet gennemgang af virksomhedens indkøb",
+    partnerEmail: "partner-premium@example.dk",
+    color: "#004b57",
+    background: "#e6f3f1",
+    icon: "analysis",
+  },
 ];
 
 const icons = {
@@ -96,6 +104,8 @@ const icons = {
     '<svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"></rect><path d="M8 6h8M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"></path></svg>',
   print:
     '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 8V3h10v5"></path><path d="M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"></path><path d="M7 14h10v7H7zM17 12h.01"></path></svg>',
+  analysis:
+    '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M14 3v5h5M8 16l2-2 2 2 4-5"></path></svg>',
 };
 
 const categoryGrid = document.querySelector("#categoryGrid");
@@ -118,6 +128,7 @@ function createCategoryCard(category) {
   const button = document.createElement("button");
   button.className = "category-card";
   button.type = "button";
+  button.setAttribute("aria-label", `Vælg ${category.name}`);
   button.style.setProperty("--icon-color", category.color);
   button.style.setProperty("--icon-bg", category.background);
   button.innerHTML = `
