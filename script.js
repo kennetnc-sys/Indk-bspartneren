@@ -2,24 +2,27 @@ const ownerEmail = "mail@socialindkøb.dk";
 
 const categories = [
   {
+    name: "Premium indkøbsanalyse",
+    description: "Komplet gennemgang af virksomhedens indkøb",
+    price: "No cure, no pay",
+    partnerEmail: "partner-premium@example.dk",
+    color: "#004b57",
+    background: "#e6f3f1",
+    icon: "analysis",
+  },
+  {
     name: "IT-løsninger",
     description: "IT-drift, support og digitale løsninger",
+    price: "Fra 249 kr./bruger/md.",
     partnerEmail: "partner-it@example.dk",
     color: "#004b57",
     background: "#e6f3f1",
     icon: "monitor",
   },
   {
-    name: "El",
-    description: "El aftaler og erhvervsløsninger",
-    partnerEmail: "partner-el@example.dk",
-    color: "#5cae77",
-    background: "#eaf6ee",
-    icon: "bolt",
-  },
-  {
     name: "Internet",
     description: "Bredbånd, fiber og forbindelser",
+    price: "Fra 399 kr./md.",
     partnerEmail: "partner-internet@example.dk",
     color: "#0b6470",
     background: "#e4f3f1",
@@ -27,16 +30,55 @@ const categories = [
     requiresDeliveryAddress: true,
   },
   {
+    name: "Mobiltelefoni",
+    description: "Firmamobil, abonnementer og data",
+    price: "Fra 99 kr./md.",
+    partnerEmail: "partner-mobil@example.dk",
+    color: "#0b6470",
+    background: "#e4f3f1",
+    icon: "smartphone",
+  },
+  {
+    name: "El",
+    description: "El aftaler og erhvervsløsninger",
+    price: "Fra 15 kr./md. + forbrug",
+    partnerEmail: "partner-el@example.dk",
+    color: "#5cae77",
+    background: "#eaf6ee",
+    icon: "bolt",
+  },
+  {
+    name: "Gas",
+    description: "Gasaftaler til erhverv",
+    price: "Fra 5,07 kr./m³",
+    partnerEmail: "partner-gas@example.dk",
+    color: "#336f71",
+    background: "#e6f1ee",
+    icon: "flame",
+    requiresDeliveryAddress: true,
+  },
+  {
     name: "Omstillingsbord",
     description: "Telefontilpasning og kundedialog",
+    price: "Fra 79 kr./md.",
     partnerEmail: "partner-telefon@example.dk",
     color: "#75bd8c",
     background: "#edf7f1",
     icon: "headset",
   },
   {
+    name: "Rengøring",
+    description: "Rengøringsaftaler og facility-service",
+    price: "Efter behov",
+    partnerEmail: "partner-rengoring@example.dk",
+    color: "#75bd8c",
+    background: "#edf7f1",
+    icon: "cleaning",
+  },
+  {
     name: "Overfaldsalarm",
     description: "Tryghedsløsninger til medarbejdere",
+    price: "Fra 149 kr./md.",
     partnerEmail: "partner-alarm@example.dk",
     color: "#004b57",
     background: "#e8f4f2",
@@ -45,23 +87,16 @@ const categories = [
   {
     name: "Forsikringer",
     description: "Erhvervsforsikringer og rådgivning",
+    price: "Fra 479 kr./md.",
     partnerEmail: "partner-forsikring@example.dk",
     color: "#5fae7a",
     background: "#e7f5ed",
     icon: "umbrella",
   },
   {
-    name: "Gas",
-    description: "Gasaftaler til erhverv",
-    partnerEmail: "partner-gas@example.dk",
-    color: "#336f71",
-    background: "#e6f1ee",
-    icon: "flame",
-    requiresDeliveryAddress: true,
-  },
-  {
     name: "Revisor",
     description: "Regnskab, revision og økonomi",
+    price: "Fra 1.995 kr./år",
     partnerEmail: "partner-revisor@example.dk",
     color: "#55757b",
     background: "#edf3f2",
@@ -70,18 +105,11 @@ const categories = [
   {
     name: "Tryksager",
     description: "Print, profilmateriale og produktion",
+    price: "Fra 299 kr.",
     partnerEmail: "partner-tryk@example.dk",
     color: "#8aaebe",
     background: "#eef5f7",
     icon: "print",
-  },
-  {
-    name: "Premium indkøbsanalyse",
-    description: "Komplet gennemgang af virksomhedens indkøb",
-    partnerEmail: "partner-premium@example.dk",
-    color: "#004b57",
-    background: "#e6f3f1",
-    icon: "analysis",
   },
 ];
 
@@ -92,8 +120,12 @@ const icons = {
     '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7l0-7Z"></path></svg>',
   wifi:
     '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 20h.01M2 8.5a15 15 0 0 1 20 0"></path></svg>',
+  smartphone:
+    '<svg aria-hidden="true" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>',
   headset:
     '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 13v-1a8 8 0 0 1 16 0v1"></path><path d="M4 13a2 2 0 0 1 2-2h1v6H6a2 2 0 0 1-2-2v-2ZM20 13a2 2 0 0 0-2-2h-1v6h1a2 2 0 0 0 2-2v-2ZM14 20h1a5 5 0 0 0 5-5"></path></svg>',
+  cleaning:
+    '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="m14 4 6 6"></path><path d="m18 8-9 9"></path><path d="m4 20 5-5 4 4-5 3H4v-2Z"></path><path d="M5 12h.01M8 9h.01M3 8h.01"></path></svg>',
   shield:
     '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="M12 8v4M12 16h.01"></path></svg>',
   umbrella:
@@ -136,6 +168,7 @@ function createCategoryCard(category) {
     <span class="category-text">
       <h3>${category.name}</h3>
       <p>${category.description}</p>
+      <p class="category-price">${category.price}</p>
     </span>
     <span class="arrow-icon" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
